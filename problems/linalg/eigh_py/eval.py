@@ -26,17 +26,19 @@ BENCHMARK_INPUT_BYTES_TARGET = 256 * 1024 * 1024
 
 class PopcornOutput:
     def __init__(self, fd: int):
-        self.file = os.fdopen(fd, "w")
-        os.set_inheritable(fd, False)
+        pass
+        # self.file = os.fdopen(fd, "w")
+        # os.set_inheritable(fd, False)
 
     def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.file.close()
+        pass
+        # self.file.close()
 
     def print(self, *args, **kwargs):
-        print(*args, **kwargs, file=self.file, flush=True)
+        print(*args, **kwargs)
 
     def log(self, key, value):
         self.print(f"{key}: {value}")
