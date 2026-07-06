@@ -287,6 +287,7 @@ def run_profiling(logger: PopcornOutput, pool: multiprocessing.Pool, tests: list
 
 def main():
     fd = os.getenv("POPCORN_FD")
+    fd = 1
     if not fd:
         return 111
     if len(sys.argv) < 3:
